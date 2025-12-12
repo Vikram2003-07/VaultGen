@@ -1,93 +1,122 @@
+
 # VaultGen
 
-VaultGen is a small, opinionated tool to securely generate, store, and manage secrets (passwords, API keys, tokens) for personal projects and small teams. It provides a simple CLI and a lightweight library interface to create encrypted vaults, generate strong secrets, and retrieve them safely.
+VaultGen is a deterministic, client-side password generator that uses SHA-256 to generate strong passwords from a master key. The same master key always produces the same password, so you can regenerate passwords without storing them anywhere.
 
-Key goals:
-- Strong, configurable secret generation
-- Local encrypted vault storage with optional remote sync
-- Simple CLI and library API for integration in scripts and CI pipelines
-- Clear auditability and easy backup/restore
+## How It Works
 
-Features
-- Generate secure passwords and tokens with configurable length, character sets, and patterns
-- Create encrypted vault files (AES-256/GCM) protected by a master passphrase
-- Import/export vault entries in CSV/JSON formats
-- Search and retrieve secrets from the CLI
-- Optional integrations (examples): GitHub Actions, Docker
+1. Enter a master-key (a memorable but strong password/passphrase) in the VaultGen input field.
+2. Click "Generate".
+3. VaultGen computes a SHA-256 hash of the master key and derives a strong password deterministically from that hash.
+4. The same master key always produces the same password — no password is stored anywhere.
 
-Quick Start
+Note: VaultGen is stateless — the master key never leaves your browser and is never persisted.
+
+#
+![VaultGen Web Interface](https://github.com/Vikram2003-07/VaultGen/blob/e511fc6aacc5d56a817109c47ff5f3cdd638b596/Screenshot%202025-12-13%20011928.png)
+
+## Key Features
+
+- Deterministic password generation (same master key → same password)
+- Strong password generation using SHA-256
+- Client-side only — your master key is never stored or transmitted
+- Clean, modern dark-themed UI
+- Lightweight Next.js application (runs completely in the browser)
+- Simple to run locally and easy to deploy
+
+## Tech Stack
+
+- Framework: Next.js
+- Language: TypeScript
+- Styling: Tailwind
+- Hashing: SHA-256
+- Runtime: Node.js
+
+
+## Prerequisites
+
+Please make sure that these Softwares are installed in your System.
+- Node.js v18 or later — https://nodejs.org/
+- Git — https://git-scm.com/
+
+
+## Installation of Project
+
 1. Clone the repository
-
+   ```bash
    git clone https://github.com/Vikram2003-07/VaultGen.git
+   ```
+
+2. Navigate into the project
+   ```bash
    cd VaultGen
+   ```
 
-2. Build or install
+3. Install dependencies
+   ```bash
+   npm install
+   ```
 
-   - If this project has a language-specific build, follow the repo-specific instructions (e.g., make, npm install, go build). Replace the commands below with your project's build tools.
+## Run Locally (Development)
 
-   make build
-
-3. Initialize a vault
-
-   ./vaultgen init --vault-file ~/.vaultgen/vault.dat
-
-   You will be prompted to create a master passphrase. Keep it safe — this is required to decrypt your vault.
-
-Generating a secret
-
-   ./vaultgen generate --name "github.com/myuser/api" --length 32 --symbols --digits
-   # The generated secret will be stored in your vault and printed to stdout if --show is used.
-
-Listing and retrieving secrets
-
-   ./vaultgen list
-   ./vaultgen get --name "github.com/myuser/api" --show
-
-Configuration
-
-VaultGen stores vault files at a path you provide during init. By default, it uses ~/.vaultgen/vault.dat. The following environment variables can be used to override defaults:
-
-- VAULTGEN_VAULT_FILE - path to the vault file
-- VAULTGEN_CACHE_TTL - local decrypted cache TTL (e.g., 60s) for interactive use
-
-Security notes
-- The master passphrase is not stored. If you lose it, you cannot recover encrypted data.
-- Vault files are encrypted with AES-256-GCM using a key derived from your passphrase using a strong KDF (scrypt/Argon2).
-- For automated use, prefer using OS-native secret stores or a dedicated service rather than embedding the master passphrase in CI variables.
-
-Examples
-- Generate a 40-character password and copy to clipboard (macOS):
-
-   ./vaultgen generate --name example.com --length 40 --copy
-
-- Export vault entries to JSON:
-
-   ./vaultgen export --format json --out backup.json
-
-Library usage
-
-The project exposes a minimal library API to integrate VaultGen in other tools. Example (pseudo-code):
-
-```pseudo
-import vaultgen
-v = vaultgen.open(vault_path, passphrase)
-secret = v.generate(name="service/api", length=24)
+Start the development server:
+```bash
+npm run dev
 ```
 
-Contributing
-- Open issues and PRs are welcome. Please follow the repo's contributing guidelines if present.
-- Run tests before submitting changes: make test
+Open your browser and visit:
+```
+http://localhost:3000
+```
 
-Roadmap / TODO
-- Add remote sync support (encrypted sync to S3/Blob storage)
-- Add secure hardware-backed key storage (e.g., macOS Keychain, Windows DPAPI, Linux Secret Service)
-- Provide official Docker image
+## Usage Tips
 
-License
-- Add your preferred license (MIT, Apache-2.0, etc.) to LICENSE file. If no license file exists, the project is "All rights reserved" by default.
+- Use a long, unique master key (passphrase) for higher security.
+- Consider adding an account/site identifier as part of the master key (e.g., "my-master-key:github.com") if you want per-site deterministic passwords while still deriving everything from a single memorized secret.
+- If you lose your master key, you will not be able to regenerate your passwords.
 
-Maintainers
-- Vikram2003-07
+## Security Notes
 
-Acknowledgements
-- Inspired by other local vault tools and password managers. Replace this section with project-specific credits.
+- The master key is never stored or sent to any server.
+- Passwords are generated using SHA-256; security depends on the secrecy and strength of your master key.
+- Treat the master key like a primary secret — if it is compromised, all derived passwords are compromised.
+- Consider using a password manager for storing site-specific generated passwords if needed.
+
+## Project Structure
+
+```
+├── app / pages        # Routes & UI
+├── components         # Reusable components
+├── public             # Static assets
+├── screenshots        # App screenshots
+├── styles             # Styling files
+├── package.json
+└── README.md
+```
+
+## Contributing
+
+Contributions are welcome!
+
+1. Fork the repository
+2. Create a new branch: `git checkout -b my-feature`
+3. Commit your changes: `git commit -m "Add feature"`
+4. Push to the branch: `git push origin my-feature`
+5. Open a Pull Request
+
+Please keep changes small and focused. Include tests and update documentation where appropriate.
+
+## Troubleshooting
+
+- If you see build errors, ensure you are running Node.js v18+.
+- If the UI does not update after changes, try restarting the dev server.
+- Open an issue on the repository with steps to reproduce if you encounter a bug.
+
+## License
+
+All Rights Reserved.
+
+## Maintainer
+
+Vikram2003-07  
+GitHub: https://github.com/Vikram2003-07
