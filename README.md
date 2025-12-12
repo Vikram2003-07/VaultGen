@@ -3,6 +3,8 @@
 
 VaultGen is a deterministic, client-side password generator that uses SHA-256 to generate strong passwords from a master key. The same master key always produces the same password, so you can regenerate passwords without storing them anywhere.
 
+🔗 **Live Preview of the Website, click the link :** [https://vault-gen.vercel.app](https://vault-gen.vercel.app)
+
 ## How It Works
 
 1. Enter a master-key (a memorable but strong password/passphrase) in the VaultGen input field.
