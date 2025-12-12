@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  height: 100%;
+}
+
+body {
+  @apply bg-slate-950 text-slate-200 antialiased;
+}
+
+.card-glow {
+  transition: box-shadow 220ms ease, transform 220ms ease;
+}
+
+.password-glow {
+  box-shadow: 0 0 40px rgba(16,185,129,0.12), 0 0 12px rgba(16,185,129,0.06);
+}
