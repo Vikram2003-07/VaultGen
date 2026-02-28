@@ -1,4 +1,4 @@
-// File: C:\Users\asusv\Documents\Projects\Password_Generator\app\layout.jsx
+// File: C:\Users\asusv\Documents\Projects\ValtGen\app\layout.jsx
 import * as entry from '../../../app/layout.js'
 import type { ResolvingMetadata } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

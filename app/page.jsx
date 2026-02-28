@@ -18,7 +18,7 @@ export default function Page() {
   const [show, setShow] = useState(false)
   const [copied, setCopied] = useState(false)
   const [generated, setGenerated] = useState(false)
-  const length = 12
+  const length = 26
 
   async function generate() {
     if (!master) {
