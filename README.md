@@ -1,17 +1,12 @@
-<div align="center">
-
 # 🔐 VaultGen
 
 ### Deterministic Client-Side Password Generator
 
 [![Next.js](https://img.shields.io/badge/Next.js-13-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-All_Rights_Reserved-red?style=for-the-badge)](LICENSE)
 [![Status](https://img.shields.io/badge/Status-Active-green?style=for-the-badge)](https://vault-gen.vercel.app)
 
 *Generate strong, memorable passwords that you can regenerate anytime without storing them anywhere.*
-
-</div>
 
 ---
 
