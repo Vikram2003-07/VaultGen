@@ -1,24 +1,7 @@
 # 🔐 VaultGen
 
 ### Deterministic Client-Side Password Generator
-
-[![Next.js](https://img.shields.io/badge/Next.js-13-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
-[![Status](https://img.shields.io/badge/Status-Active-green?style=for-the-badge)](https://vault-gen.vercel.app)
-
 *Generate strong, memorable passwords that you can regenerate anytime without storing them anywhere.*
-
----
-
-## ✨ Features
-
-- 🔑 **Deterministic Passwords** — Same master key always generates the same password
-- 🛡️ **Client-Side Only** — Your master key never leaves your browser
-- 🔒 **SHA-256 Hashing** — Industry-standard cryptographic hashing
-- 🎨 **Beautiful Dark UI** — Modern, sleek interface with glowing effects
-- 📱 **Responsive Design** — Works perfectly on all devices
-- ⚡ **Lightweight** — Fast and efficient, runs entirely in the browser
-- 🔄 **Easy Copy** — One-click copy to clipboard with visual feedback
 
 ---
 
@@ -31,6 +14,18 @@ Visit the live website: **[https://vault-gen.vercel.app](https://vault-gen.verce
 ## 📸 Preview
 
 ![VaultGen Web Interface](https://github.com/Vikram2003-07/VaultGen/blob/969726fed5010656fa059cc999b1273a1a7a5925/Screenshot%202025-12-13%20011928.png)
+
+---
+
+## ✨ Features
+
+- 🔑 **Deterministic Passwords** — Same master key always generates the same password
+- 🛡️ **Client-Side Only** — Your master key never leaves your browser
+- 🔒 **SHA-256 Hashing** — Industry-standard cryptographic hashing
+- 🎨 **Beautiful Dark UI** — Modern, sleek interface with glowing effects
+- 📱 **Responsive Design** — Works perfectly on all devices
+- ⚡ **Lightweight** — Fast and efficient, runs entirely in the browser
+- 🔄 **Easy Copy** — One-click copy to clipboard with visual feedback
 
 ---
 
