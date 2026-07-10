@@ -1,7 +1,7 @@
 # 🔐 VaultGen
 
 ### Deterministic Client-Side Password Generator
-*Generate strong, memorable passwords that you can regenerate anytime without storing them anywhere.*
+*A secure password vault generator that creates strong, unique passwords and accessible only with a Master Key*
 
 ---
 
